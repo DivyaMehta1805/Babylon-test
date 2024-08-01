@@ -1,5 +1,7 @@
-import * as BABYLON from '@babylonjs/core';
-import '@babylonjs/gui';
+//import * as BABYLON from '@babylonjs/core';
+//import '@babylonjs/gui';
+import * as GUI from '@babylonjs/gui';
+
 
 export const setupGUI = (scene, camera, canvas) => {
     let isDrawMode = false;
@@ -7,11 +9,11 @@ export const setupGUI = (scene, camera, canvas) => {
     let isMoveMode = false;
     let originalCameraKeyboardInput;
 
-    const advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
+    const advancedTexture = GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
 
     // Create buttons (drawButton, protrusionButton, moveextrudedButton)
     // ... (copy the button creation code from the original file)
-    const drawButton = BABYLON.GUI.Button.CreateSimpleButton("drawButton", "Enter Draw Mode");
+    const drawButton = GUI.Button.CreateSimpleButton("drawButton", "Enter Draw Mode");
     drawButton.width = "150px";
     drawButton.height = "40px";
     drawButton.color = "white";
@@ -20,7 +22,7 @@ export const setupGUI = (scene, camera, canvas) => {
     drawButton.top = "10px";
     drawButton.left = "10px";
     advancedTexture.addControl(drawButton);
-    const protrusionButton = BABYLON.GUI.Button.CreateSimpleButton("protrusionButton", "Enter Protrusion Mode");
+    const protrusionButton = GUI.Button.CreateSimpleButton("protrusionButton", "Enter Protrusion Mode");
 protrusionButton.width = "150px";
 protrusionButton.height = "40px";
 protrusionButton.color = "black";
@@ -31,7 +33,7 @@ protrusionButton.left = "10px"; // Aligned with drawButton's left position
 protrusionButton.isVisible = true;
 advancedTexture.addControl(protrusionButton);
 
-const moveextrudedButton = BABYLON.GUI.Button.CreateSimpleButton("moveButton", "Enter Move Mode");
+const moveextrudedButton = GUI.Button.CreateSimpleButton("moveButton", "Enter Move Mode");
 moveextrudedButton.width = "150px";
 moveextrudedButton.height = "40px";
 moveextrudedButton.color = "white";

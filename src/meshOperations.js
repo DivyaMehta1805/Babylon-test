@@ -1,20 +1,7 @@
 import * as BABYLON from '@babylonjs/core';
 
-// export const addVertex = (scene, position, vertices, vertexMeshes, lines) => {
-//     // ... (copy the addVertex function from the original file)
-// };
-
-// export const closeShape = (scene, vertices, lines, currentShape) => {
-//     // ... (copy the closeShape function from the original file)
-// };
-
-// export const extrudeShape = (scene, currentShape, extrusionHeight) => {
-//     // ... (copy the extrudeShape function from the original file)
-// };
-
-// export const clearVertices = (vertices, vertexMeshes, lines) => {
-//     // ... (copy the clearVertices function from the original file)
-const addVertex = (position) => {
+//const addVertex = (position) => {
+export const addVertex = (scene, position, vertices, vertexMeshes, lines) => {
     vertices.push(position);
     const vertexMesh = BABYLON.MeshBuilder.CreateSphere("vertex", {diameter: 0.1}, scene);
     vertexMesh.position = position;
@@ -27,7 +14,8 @@ const addVertex = (position) => {
 };
 
 // Function to connect the last vertex to the first vertex and create a shape
-const closeShape = () => {
+//const closeShape = () => {
+export const closeShape = (scene, vertices, lines, currentShape) => {
     if (vertices.length > 2) {
         const closingLine = BABYLON.MeshBuilder.CreateLines("closingLine", {points: [vertices[vertices.length - 1], vertices[0]]}, scene);
         lines.push(closingLine);
@@ -49,7 +37,8 @@ const closeShape = () => {
 };
 
 // Function to clear vertices and lines
-const clearVertices = () => {
+//const clearVertices = () => {
+export const clearVertices = (vertices, vertexMeshes, lines) => {
     vertices = [];
     vertexMeshes.forEach(mesh => mesh.dispose());
     vertexMeshes = [];
@@ -57,7 +46,8 @@ const clearVertices = () => {
     lines = [];
 };
 
-const extrudeShape = () => {
+//const extrudeShape = () => {
+export const extrudeShape = (scene, currentShape, extrusionHeight) => {
 if (currentShape) {
     // Dispose of the previous extruded shape if it exists
     if (currentShape.extrudedShape) {
